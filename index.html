@@ -1,111 +1,127 @@
-<!DOCTYPE html><html lang="pt-BR">
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Israel Store - Compra de Serviços</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Israel Store - Serviços Digitais</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background-color: #0e0e0e;
-      color: white;
+      background: #e9fdf1;
     }
+
     header {
-      background-color: #00ff99;
-      padding: 20px;
-      text-align: center;
-      font-size: 1.5em;
-      font-weight: bold;
-      color: #003322;
-    }
-    main {
-      padding: 30px;
-      max-width: 1000px;
-      margin: auto;
-    }
-    .produto {
-      background-color: #1a1a1a;
-      border-radius: 10px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 0 10px #00ff99aa;
-    }
-    .produto h3 {
-      color: #00ff99;
-    }
-    .produto p {
-      margin: 8px 0;
-    }
-    .btn-comprar {
-      display: inline-block;
-      background-color: #00ff99;
-      color: #003322;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 20px;
-      cursor: pointer;
-      font-weight: bold;
-      margin-top: 10px;
-      text-decoration: none;
-    }
-    #pagamento {
-      display: none;
-      background-color: #111;
-      padding: 20px;
-      margin-top: 30px;
-      text-align: center;
-      border-radius: 10px;
-    }
-    #pagamento img {
-      width: 200px;
-      margin-top: 10px;
-      border-radius: 10px;
-      box-shadow: 0 0 15px #00ff99;
-    }
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      padding: 20px;
-      background-color: #003322;
+      background-color: #00cc66;
       color: white;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header h1 {
+      font-size: 1.2em;
+    }
+
+    .menu-icon {
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    nav {
+      display: none;
+      background-color: #00cc66;
+      padding: 10px 20px;
+    }
+
+    nav a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      padding: 10px 0;
+    }
+
+    .container {
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .categoria, .servico {
+      background-color: #f0f0f0;
+      border-radius: 8px;
+      padding: 10px;
+      margin: 10px 0;
+    }
+
+    .servico p {
+      margin: 5px 0;
+    }
+
+    .search {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+    }
+
+    .botao {
+      background-color: #00cc66;
+      color: white;
+      padding: 12px;
+      text-align: center;
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+      width: 100%;
     }
   </style>
-</head>
-<body>
-  <header>Israel Store</header>
-  <main>
-    <div class="produto">
-      <h3>Seguidores Instagram</h3>
-      <p>100 seguidores por R$0,01</p>
-      <button class="btn-comprar" onclick="mostrarPagamento()">Comprar</button>
-    </div><div class="produto">
-  <h3>Curtidas TikTok</h3>
-  <p>100 curtidas por R$0,01</p>
-  <button class="btn-comprar" onclick="mostrarPagamento()">Comprar</button>
-</div>
-
-<div class="produto">
-  <h3>Moedas no Roblox</h3>
-  <p>10 Robux por R$0,05</p>
-  <button class="btn-comprar" onclick="mostrarPagamento()">Comprar</button>
-</div>
-
-<div id="pagamento">
-  <h3>Pagamento via Pix</h3>
-  <p>Chave Pix: <strong>israeldasilvasantos355@gmail.com</strong></p>
-  <img src="https://api.qrserver.com/v1/create-qr-code/?data=00020126580014BR.GOV.BCB.PIX0136f080fc56-92e6-489f-b4fc-1d64df0f2ff45204000053039865802BR5922Israel%20da%20Silva%20Santos6009SAO%20PAULO62140510DmW1VYjxmi63044428" alt="QR Code Pix" />
-  <p>Após o pagamento, envie o comprovante para finalizar sua compra.</p>
-</div>
-
-  </main>
-  <footer>
-    © 2025 Israel Store - Todos os direitos reservados.
-  </footer>
   <script>
-    function mostrarPagamento() {
-      document.getElementById('pagamento').style.display = 'block';
-      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+    function toggleMenu() {
+      var nav = document.getElementById("nav-menu");
+      nav.style.display = nav.style.display === "block" ? "none" : "block";
     }
   </script>
+</head>
+<body>
+  <header>
+    <h1>✔️ Israel Store</h1>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <nav id="nav-menu">
+    <a href="#">Novo pedido</a>
+    <a href="#">Serviços</a>
+    <a href="#">Depositar via Pix</a>
+    <a href="#">Meus pedidos</a>
+    <a href="#">Ajuda</a>
+  </nav>
+
+  <div class="container">
+    <input class="search" type="text" placeholder="🔍 Procurar serviço">
+
+    <div class="categoria">
+      <strong>INSTAGRAM - MAIS PEDIDOS</strong>
+      <ul>
+        <li>📸 Seguidores (Melhor Qualidade) - R$ 12,00 por 1000</li>
+        <li>📸 Seguidores Rápido - R$ 14,00 por 1000</li>
+        <li>📸 Seguidores Barato - R$ 10,00 por 1000</li>
+        <li>🎬 Visualizações Reel (Instantâneo) - R$ 1,84 por 1000</li>
+        <li>🎬 Visualizações Reel (Lento) - R$ 1,61 por 1000</li>
+        <li>🎬 Visualizações Reel (Barato) - R$ 0,76 por 1000</li>
+      </ul>
+    </div>
+
+    <button class="botao">Enviar pedido</button>
+  </div>
 </body>
 </html>
