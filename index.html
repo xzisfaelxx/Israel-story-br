@@ -54,15 +54,15 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     }
 
-    .categoria, .servico {
+    .categoria {
       background-color: #f0f0f0;
       border-radius: 8px;
       padding: 10px;
       margin: 10px 0;
     }
 
-    .servico p {
-      margin: 5px 0;
+    .categoria ul {
+      padding-left: 20px;
     }
 
     .search {
@@ -73,7 +73,7 @@
       margin-bottom: 20px;
     }
 
-    .botao {
+    .botao, .botao-pix {
       background-color: #00cc66;
       color: white;
       padding: 12px;
@@ -83,12 +83,49 @@
       font-weight: bold;
       cursor: pointer;
       width: 100%;
+      margin-top: 10px;
+    }
+
+    #pixModal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+    }
+
+    #pixModalContent {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    #pixModal img {
+      max-width: 250px;
+      margin-bottom: 10px;
+    }
+
+    .close {
+      color: red;
+      font-size: 20px;
+      cursor: pointer;
     }
   </style>
   <script>
     function toggleMenu() {
       var nav = document.getElementById("nav-menu");
       nav.style.display = nav.style.display === "block" ? "none" : "block";
+    }
+
+    function mostrarPix() {
+      document.getElementById("pixModal").style.display = "flex";
+    }
+
+    function fecharPix() {
+      document.getElementById("pixModal").style.display = "none";
     }
   </script>
 </head>
@@ -122,6 +159,16 @@
     </div>
 
     <button class="botao">Enviar pedido</button>
+    <button class="botao-pix" onclick="mostrarPix()">💳 Pagar com Pix</button>
+  </div>
+
+  <div id="pixModal">
+    <div id="pixModalContent">
+      <span class="close" onclick="fecharPix()">✖</span>
+      <h3>Escaneie para pagar com Pix</h3>
+      <img src="https://api.qrserver.com/v1/create-qr-code/?size=250x250&data=00020126580014BR.GOV.BCB.PIX0136f080fc56-92e6-489f-b4fc-1d64df0f2ff45204000053039865802BR5922Israel%20da%20Silva%20Santos6009SAO%20PAULO62140510DmW1VYjxmi63044428" alt="QR Pix">
+      <p>Ou copie a chave Pix: <br><strong>israeldasilvasantos355@gmail.com</strong></p>
+    </div>
   </div>
 </body>
 </html>
